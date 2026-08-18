@@ -4,19 +4,19 @@
         "author": "curry",
         "price": 123,
         "book_id": 110801,
-        "count": 3
-    },
-    {
-        "name": "java",
-        "author": "james",
-        "price": 12,
-        "book_id": 110802,
         "count": 2
     },
     {
-        "name": "c++",
-        "author": "kobe",
-        "price": 132,
+        "name": "JavaScript",
+        "author": "james",
+        "price": 100,
+        "book_id": 110802,
+        "count": 3
+    },
+    {
+        "name": "statestrct",
+        "author": "made",
+        "price": 89,
         "book_id": 110803,
         "count": 1
     }
