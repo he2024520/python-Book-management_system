@@ -41,18 +41,18 @@ class BookManager:
             print(index,book.show_info())
 
 
-    def borrow_books(self,num1,num2):
+    def borrow_books(self,book_id,count):
         found = False
         for index,book in enumerate(self.books):
-            if num1 == book.book_id:
+            if book_id == book.book_id:
                 found = True
-                if num2 > 5:
+                if count > 5:
                     print('一次最多借5本')
                     return
-                elif num2 <= 0:
+                elif count <= 0:
                     print('借书的数量必须大于0')
                     return
-                result = book.borrow_book(num2)
+                result = book.borrow_book(count)
                 if result:
                     print('成功借出')
                     self.save_books()
@@ -64,15 +64,15 @@ class BookManager:
             print('没找到该书')
 
 
-    def return_books(self,num1,num2):
+    def return_books(self,book_id,count):
         found = False
         for index,book in enumerate(self.books):
-            if num1 == book.book_id:
-                if num2 <= 0:
+            if book_id == book.book_id:
+                if count <= 0:
                     print('还书数量需要大于0')
                     return
                 else:
-                    book.return_book(num2)
+                    book.return_book(count)
                 found = True
                 self.save_books()
                 self.show_books()
@@ -89,9 +89,9 @@ class BookManager:
             print('没有找到')
 
 
-    def delete_books(self,num):
+    def delete_books(self,book_id):
         for book in self.books:
-            if num == book.book_id:
+            if book_id == book.book_id:
 
                 self.books.remove(book)
                 self.save_books()
@@ -101,37 +101,42 @@ class BookManager:
         print('没找到该书')
 
 
-    def change_name(self,num,new_name):
+    def change_name(self,book_id,new_name):
         for book in self.books:
-            if num == book.book_id:
+            if book_id == book.book_id:
                 book.name = new_name
                 self.save_books()
                 return
+        print('没找到该书')
 
-    def change_author(self,num,new_author):
+    def change_author(self,book_id,new_author):
         for book in self.books:
-            if num == book.book_id:
+            if book_id == book.book_id:
                 book.author = new_author
                 self.save_books()
                 return
+        print('没找到该书')
 
-    def change_book_id(self,num,new_book_id):
+    def change_book_id(self,book_id,new_book_id):
         for book in self.books:
-            if num == book.book_id:
-                book.id = new_book_id
+            if book_id == book.book_id:
+                book.book_id = new_book_id
                 self.save_books()
                 return
+        print('没找到该书')
 
-    def change_price(self,num,new_price):
+    def change_price(self,book_id,new_price):
         for book in self.books:
-            if num == book.book_id:
+            if book_id == book.book_id:
                 book.price = new_price
                 self.save_books()
                 return
+        print('没找到该书')
 
-    def change_count(self,num,new_count):
+    def change_count(self,book_id,new_count):
         for book in self.books:
-            if num == book.book_id:
+            if book_id == book.book_id:
                 book.count = new_count
                 self.save_books()
                 return
+        print('没找到该书')
